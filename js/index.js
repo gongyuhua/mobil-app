@@ -74,7 +74,7 @@ $(function() {
       // });
     }
   });
-  //img
+  //img carousel
   var index = 0,
     length = $(".banner img").length;
   $(".banner img")
@@ -82,6 +82,11 @@ $(function() {
     .show()
     .siblings("img")
     .hide();
+  //circle
+  for (var i = 0; i < length; i++) {
+    var select = i == 0 ? "selected" : "";
+    $(".banner-circle ul").append('<li class="' + select + '"></li>');
+  }
   setInterval(banner, 3000);
   function banner() {
     index++;
@@ -93,6 +98,10 @@ $(function() {
       .show()
       .siblings("img")
       .hide();
+    $(".banner-circle ul li")
+      .removeClass()
+      .eq(index)
+      .addClass("selected");
   }
 });
 
